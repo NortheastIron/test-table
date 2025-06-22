@@ -1,0 +1,25 @@
+.app-material-table {
+    max-height: 100%;
+    overflow: auto;
+
+    table {
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .mat-mdc-header-row {
+            background-color: #ebebf0;
+            user-select: none;
+
+            .mat-mdc-header-cell {
+                border: none;
+            }
+        }
+
+        .mat-mdc-cell {
+            border-color: #c9c9c9;
+        }
+    }
+}

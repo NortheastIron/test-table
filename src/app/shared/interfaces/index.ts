@@ -1,0 +1,1 @@
+export type { ColumnConfig } from './column-config.interface';

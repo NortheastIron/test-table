@@ -1,0 +1,41 @@
+<div class="app-custom-table">
+    <table class="app-custom-table__table">
+        <thead>
+            <tr class="header-row">
+                @for (col of columns(); track col.key) {
+                    <th class="header-row__cell"
+                        [class.header-row__cell--sortable]="col.sort && tableData().length"
+                        (mouseenter)="setHoveredCol(col.key, col.sort)"
+                        (mouseleave)="setHoveredCol(null)"
+                        (click)="handleSortClick(col.key, col.sort)">
+                        <div class="header-row__cell__container">
+                            <div class="header-row__cell__container__content">
+                                {{col.name}}
+                            </div>
+                            <div class="header-row__cell__container__control">
+                                @if (col.sort) {
+                                    <button class="control-button"
+                                            tabindex="-1"
+                                            [disabled]="!tableData().length">
+                                        <i class="icon" [ngClass]="getIconClass(col.key)"></i>
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of sortedData(); track item['uuid']) {
+                <tr class="body-row">
+                    @for (col of columns(); track col.key) {
+                        <td class="body-row__cell">
+                            {{item[col.key]}}
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

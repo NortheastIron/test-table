@@ -1,0 +1,1 @@
+export { MaterialTableComponent } from './material-table.component';

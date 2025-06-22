@@ -1,0 +1,90 @@
+// sizes
+@tr-height: 32px;
+
+// colors
+@head-bac-color: #ebebf0;
+
+.app-custom-table {
+    max-height: 100%;
+    max-width: 100%;
+    overflow: auto;
+
+    &__table {
+        min-width: 100%;
+        border: none;
+        border-spacing: 0;
+        table-layout: fixed;
+
+        .header-row {
+            background-color: @head-bac-color;
+            user-select: none;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            &__cell {
+                font-weight: 500;
+
+                &--sortable {
+                    cursor: pointer;
+                }
+
+                &__container {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    &__content {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    &__control {
+
+                        .control-button {
+
+                            &[disabled] {
+                                cursor: default;
+                            }
+
+                            .icon {
+                                transition: opacity 0.2s ease;
+                                opacity: 0.5;
+
+                                &--hidden {
+                                    opacity: 0;
+                                }
+
+                                &--active {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-row, .body-row {
+            height: @tr-height;
+
+            &__cell {
+                padding: 0 10px;
+                text-align: left;
+                
+            }
+        }
+
+        .body-row {
+            &__cell {
+                border-bottom: #c9c9c9 solid 1px;
+            }
+
+            &:last-child {
+                .body-row__cell {
+                    border: none;
+                }
+            }
+        }
+    }
+}

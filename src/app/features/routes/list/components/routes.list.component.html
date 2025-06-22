@@ -1,0 +1,29 @@
+<div class="app-routes-list">
+    <div class="app-routes-list__control">
+        <mat-slide-toggle (change)="onSlide()">Show material table</mat-slide-toggle>
+    </div>
+
+    @if (isLoading()) {
+        <div class="loading-box">
+            <mat-spinner diameter="40"></mat-spinner>
+        </div>
+    }
+
+    @if (error()) {
+        <div class="error-box">
+            <div class="error-box__title">
+                {{ error() }}
+            </div>
+
+            <button mat-stroked-button color="basic" (click)="loadData()">Reload</button>
+        </div>
+    }
+    
+    <div class="app-routes-list__list">
+        @if (isShowMaterial) {
+            <app-material-table [columns]="columns()" [tableData]="routes()"></app-material-table>
+        } @else {
+            <app-custom-table [columns]="columns()" [tableData]="routes()"></app-custom-table>
+        }
+    </div>
+</div>
