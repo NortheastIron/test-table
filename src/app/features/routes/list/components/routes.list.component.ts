@@ -8,9 +8,9 @@ import { finalize } from 'rxjs';
 
 import { CustomTableComponent, MaterialTableComponent } from '@shared';
 import { ColumnConfig } from '@shared/interfaces';
-import { Route } from '@core';
 
 import { RoutesService } from '@features/routes/list/services';
+import { Route } from '@features/routes/list/interfaces';
 
 @Component({
     selector: 'app-routes-list',

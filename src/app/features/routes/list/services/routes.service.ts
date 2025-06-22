@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Route } from '@core';
 import { Observable } from 'rxjs';
+
+import { Route } from '@features/routes/list/interfaces';
 
 @Injectable()
 export class RoutesService {
