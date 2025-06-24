@@ -1,4 +1,12 @@
-import { Component, computed, effect, input, InputSignal, ViewChild, viewChild } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    computed,
+    effect,
+    input,
+    InputSignal,
+    viewChild
+} from '@angular/core';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
@@ -6,6 +14,7 @@ import { ColumnConfig } from '@shared/interfaces';
 import { TableData } from '@shared/types';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-material-table',
     standalone: true,
     imports: [MatTableModule, MatSortModule],

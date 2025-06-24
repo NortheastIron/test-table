@@ -1,5 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, effect, input, InputSignal, signal, Signal, WritableSignal } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    computed,
+    effect,
+    input,
+    InputSignal,
+    signal,
+    Signal,
+    WritableSignal
+} from '@angular/core';
 
 import { ColumnConfig } from '@shared/interfaces';
 import { TableData } from '@shared/types';
@@ -7,6 +17,7 @@ import { TableData } from '@shared/types';
 import { SortDirections } from './enums';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-custom-table',
     standalone: true,
     imports: [CommonModule],
@@ -14,6 +25,7 @@ import { SortDirections } from './enums';
     styleUrl: './custom-table.component.less'
 })
 export class CustomTableComponent {
+
     public columns: InputSignal<ColumnConfig[]> = input.required();
     public tableData: InputSignal<TableData> = input.required();
 

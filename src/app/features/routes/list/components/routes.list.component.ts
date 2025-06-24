@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -13,6 +13,7 @@ import { RoutesService } from '@features/routes/list/services';
 import { Route } from '@features/routes/list/interfaces';
 
 @Component({
+    changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'app-routes-list',
     standalone: true,
     imports: [
@@ -28,7 +29,6 @@ import { Route } from '@features/routes/list/interfaces';
     providers: [RoutesService]
 })
 export class RoutesListComponent {
-
     private _routesService = inject(RoutesService);
 
     protected columns = signal<ColumnConfig[]>([
